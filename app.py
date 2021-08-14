@@ -41,7 +41,10 @@ def show_pet(pet_id):
     pet = Pet.query.get_or_404(pet_id)
     form = PetForm(obj=pet)
     if form.validate_on_submit():
-        print('GOT EM!')
+        pet.photo_url = form.photo_url.data
+        pet.notes = form.notes.data
+        db.session.commit()
+        return redirect('/')
     else:
         return render_template('show_pet.html', pet=pet, form=form)
 
