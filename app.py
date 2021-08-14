@@ -8,5 +8,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///agency"
 
 debug = DebugToolbarExtension(app)
 
-connect_db(app)
+# connect_db(app)
+
+
+@app.route('/')
+def show_pet_list():
+    return render_template('pet_list.html')
 
