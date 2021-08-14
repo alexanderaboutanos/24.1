@@ -3,5 +3,17 @@
 {% extends "base.html" %} {% block title %} Pet List {% endblock %} {% block
 content %}
 <h1>Pets</h1>
-<div></div>
+<div>
+  <ul>
+    {% for pet in pets %}
+    <li>
+      {{pet.name}}
+      <img src="{{pet.photo_url}}" alt="picture of pet#{{pet.id}}" />
+      {% if pet.avaliable == True %}
+      <p>AVALIABLE!</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}

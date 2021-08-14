@@ -13,5 +13,6 @@ connect_db(app)
 
 @app.route('/')
 def show_pet_list():
-    return render_template('pet_list.html')
+    pets = Pet.query.all()
+    return render_template('pet_list.html', pets=pets)
 
